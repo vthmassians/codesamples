@@ -1,0 +1,130 @@
+<html>
+
+<head>
+
+    <script language="javascript" src="validator.js"></script>
+    <script language="javascript" src="datadumper.js"></script>
+
+    <script>
+        var iv = new inputValidation();
+
+        var rules = new Array(0);
+
+        //rules
+        rules['input_text'] = new Array();
+        rules['input_text']['max'] = 20;
+        rules['input_text']['min'] = 3;
+        rules['input_text']['reg'] = /Hello/;
+        //error messages
+        rules['input_text']['err'] = new Array();
+        rules['input_text']['err']['max'] = 'Too Long';
+        rules['input_text']['err']['min'] = 'Too Short';
+        rules['input_text']['err']['reg'] = 'please type Hello';
+        
+
+        //rules
+        rules['select_list'] = new Array();
+        rules['select_list']['emp'] = true;
+        //error messages
+        rules['select_list']['err'] = new Array();
+        rules['select_list']['err']['emp'] = 'Pick \'Something\' from Dropdown';
+
+        //rules
+        rules['mytext'] = new Array();
+        rules['mytext']['max'] = 30;
+        rules['mytext']['min'] = 10;
+        rules['mytext']['emp'] = true;
+        //error messages
+        rules['mytext']['err'] = new Array();
+        rules['mytext']['err']['max'] = 'Write text under 30 chars';
+        rules['mytext']['err']['min'] = 'Write text at least 10 chars';
+        rules['mytext']['err']['emp'] = 'Write between 10 and 30 chars';
+
+        //rules
+        rules['many'] = new Array();
+        rules['many']['max'] = 2;
+        rules['many']['min'] = 1;
+        rules['many']['emp'] = true;
+        //error messages
+        rules['many']['err'] = new Array();
+        rules['many']['err']['max'] = 'Check No more than two boxes';
+        rules['many']['err']['min'] = 'Check At Least one';
+        rules['many']['err']['emp'] = 'Check 1 or 2 checkboxes';
+
+        //rules
+        rules['radiogroup'] = new Array();
+        rules['radiogroup']['min'] = 1;
+        rules['radiogroup']['emp'] = true;
+        //error messages
+        rules['radiogroup']['err'] = new Array();
+        rules['radiogroup']['err']['min'] = 'click a Radio Button';
+
+
+        function runMe(tf)
+        {
+            //configure
+            iv.defaultColor = '#ffffff';
+            iv.errorColor   = '#FFFF99';
+            iv.highlightFields = true;
+            iv.displayAs    = 'div';
+            iv.setFormObject(tf);
+            iv.setRules(rules);
+            //run
+            iv.validateBasic();
+            iv.displayErrors();
+        }
+
+
+
+    </script>
+    <style>
+    .errorDisplay{
+    color  :red;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="errorDisplay" class="errorDisplay" style="display:none" >
+
+    </div>
+    <form>
+        
+        Type 'Hello'
+        <br />
+        <input style="" id="input_text_field" type="text" value="" name="input_text">
+        <br/>
+        Select Something 
+        <br/>
+        <select id="select_list_field" name="select_list">
+            <option value="">Nothing
+            <option value="some_value">Something
+        </select>
+        <br />
+        Enter Something, min 10, max 30 
+        <br />
+        <textarea name="mytext" id="mytext_field" style=""></textarea>
+        <br/>
+        Select One, no more than two
+        <br/>
+        <div id="many_field" style="">
+        <input type="checkbox" name="many" value="1" id="checkbox">Item 1<br/>
+        <input type="checkbox" name="many" value="2" id="checkbox">Item 2<br/>
+        <input type="checkbox" name="many" value="3" id="checkbox">Item 3<br/>
+    </div>
+        <br />
+        Select One
+        <br />
+        <div id="radiogroup_field">
+        <input type="radio" name="radiogroup" value="1">Radio 1
+        <input type="radio" name="radiogroup" value="2">Radio 2
+    </div>
+        <br/><br/>
+        <input value="validate" type="button" onclick="runMe(this.form);">
+
+
+    </form>
+</body>
+
+</html>
