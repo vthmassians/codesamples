@@ -8,4 +8,4 @@ Digital Room. Conceptually, there were three components that would load: DAO (Da
 
 
 validator:
-Javascript input validator with example index.php. This was written to be used for a wordpress plugin at Disney DTSS 
+Javascript input validator with example index.php. This was written to be used for a wordpress plugin 
