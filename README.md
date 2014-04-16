@@ -8,10 +8,10 @@ Code Samples
 
 Ordp_Factory.php
 |
-- factory
-  |- Ordp_DAOFactory.php - Database class loader
-  |- Ordp_ModelFactory.php - Model class Loader
-  |- Ordp_PluginFactory.php - Plugin class loader
+| factory
+ | Ordp_DAOFactory.php - Database class loader
+ | Ordp_ModelFactory.php - Model class Loader
+ | Ordp_PluginFactory.php - Plugin class loader
 
 *Usage*
 Initial call to Ordp_Factory::getInstance per type
